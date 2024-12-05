@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RPi Images</title>
+</head>
+<body>
+    <h1>RPi Images</h1>
+   <p>
+     Images sent from your Raspberry Pi using HTTP
+  </p>
+    <div id="image-gallery"></div>
+    <script>
+        async function loadImages() {
+            const response = await fetch('/uploads/');
+            const images = await response.json();
+            const gallery = document.getElementById('image-gallery');
+            images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = `/uploads/${image}`;
+                img.style.width = '200px';
+                gallery.appendChild(img);
+            });
+        }
+        loadImages();
+    </script>
+</body>
+</html>
