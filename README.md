@@ -38,4 +38,3 @@ Protocols:
 - python for sensor data, mqtt (paho-mqtt library), http(requests).
 - Html, javascript/node for photos and web application.
 
-
