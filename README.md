@@ -1,44 +1,40 @@
-# Hello Node!
 
-This project includes a Node.js server script and a web page that connects to it. The front-end page presents a form the visitor can use to submit a color name, sending the submitted value to the back-end API running on the server. The server returns info to the page that allows it to update the display with the chosen color. 🎨
+# Smart Care Device
 
-[Node.js](https://nodejs.org/en/about/) is a popular runtime that lets you run server-side JavaScript. This project uses the [Fastify](https://www.fastify.io/) framework and explores basic templating with [Handlebars](https://handlebarsjs.com/).
+Student Name: Eoin Geoghegan   
+Student ID: 20036009
 
-_Last updated: 14 August 2023_
+# Concept: 
+- A monitoring device that could be used in healthcare. The device uses real time data and records data over time using MQTT, ThingSpeak, Blynk, and Glitch.
+- Detects falls using gyroscope and accelerometer data. 
+- The device monitors the environment temperature and humidity for comfort. 
+- The device can take a picture of the environment showing the position of the device. 
+- Alerts a family member/carer if a fall happens.
 
-## Prerequisites
+# The idea: 
+For this project imagine the device is attached to a persons chest in a fixed position and that it is portable. To create a device that uses the accelerometer and gyrodcope to detect if a person has fallen. The accelerometer will be set a certain value that allows for normal day to day movement, sitting/standing/walking. If the device moves at a faster rate than normal, this could indicate that the device itself or the person has fallen. The gyroscope can be used to display data historically and live to show what position the device is in. If it is sideways this could indicate the person is lying down or fallen on the ground. In the event of a suspected fall the device will take a picture of the area in front of the person and send an alert to a family member/carer to check on the individual, the picture can be displayed on the website or mobile phone. The device can also record the temperature and humidity of the envrionment to ensure the person is comfortable. The temperature sensor could also indicate if a person is located inside or outside. The device could be used in a care setting a person can be checked physically by a carer, or in a home setting if a person using the device lives on their own.
 
-You'll get best use out of this project if you're familiar with basic JavaScript. If you've written JavaScript for client-side web pages this is a little different because it uses server-side JS, but the syntax is the same!
+# Ideas down the line: 
+- Add an emrgency button(joystick in this case) that could send an alert if a person using the device is feeling unwell. 
+- Using GPS to track the indivudual while in commmunity in case of a fall. 
+- Live streaming from the device in case of a fall.
 
-## What's in this project?
 
-← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
+## Tech Stack
 
-← `public/style.css`: The styling rules for the pages in your site.
+Protocols:
 
-← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
+- Mqtt: For publishing data to subscribers (Thingspeak + Blynk). Provides Quality of service.
+- thingspeak: for monitoring over time; temp, humidity, gyro, accel(in case of a fall but person denies it). Use MATLAB to send alerts to email a family member in case of fall using the gyroscope and accelerometer.
+- http: glitch API for photos and thingspeak visuals.
+- blynk: mobile app for real time monitoring of temp, humidity, gyro + button to direct to glitch website to see visuals and photos,
+- wifi
+# Hardware: 
+- Raspberry pi, sense hat, raspberry Pi camera.
+- Sensors: Gyroscope, Accelerometer, temperature and humidity
 
-← `package.json`: The NPM packages for your project's dependencies.
+# Languages
 
-← `src/`: This folder holds the site template along with some basic data files.
+- python for sensor data, mqtt (paho-mqtt library), http(requests).
+- Html, javascript/node for photos and web application.
 
-← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or as a query parameter to choose a random color.
-
-← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to match searches against color names.
-
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
-
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-___Want a minimal version of this project to build your own Node.js app? Check out [Blank Node](https://glitch.com/edit/#!/remix/glitch-blank-node)!___
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.

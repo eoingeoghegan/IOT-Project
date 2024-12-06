@@ -3,6 +3,7 @@ const multer = require("multer");
 const app = express();
 const fs = require("fs");
 
+
 const upload = multer({ dest: "public/uploads/" });
 
 app.use(express.static("public"));
@@ -33,3 +34,8 @@ app.get("/uploads", (req, res) => {
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log(`Your app is listening on port ${listener.address().port}`);
 });
+
+
+
+
+

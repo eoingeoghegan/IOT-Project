@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RPi Images</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Smart Device Photo Gallery</title>
 </head>
+  
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          // https://www.w3schools.com/js/js_window_location.asp
+          <a class="button" onclick="window.location.href='stats.html'">stats</a>
+          <a class="button" onclick="window.location.href='index.html'">Photos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
 <body>
-    <h1>RPi Images</h1>
-   <p>
-     Images sent from your Raspberry Pi using HTTP
-  </p>
+    <h1>Smart Device Photos</h1>
     <div id="image-gallery"></div>
     <script>
         async function loadImages() {
