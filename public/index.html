@@ -10,16 +10,16 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          // https://www.w3schools.com/js/js_window_location.asp
-          <a class="button" onclick="window.location.href='stats.html'">stats</a>
-          <a class="button" onclick="window.location.href='index.html'">Photos</a>
+          <!-- https://www.w3schools.com/js/js_window_location.asp -->
+          <a class="button has-background-info" onclick="window.location.href='stats.html'">Stats</a>
+          <a class="button has-background-info" onclick="window.location.href='index.html'">Photos</a>
         </div>
       </div>
     </div>
   </div>
 </nav>
 <body>
-    <h1>Smart Device Photos</h1>
+  <h1><b>Smart Device Photos</b></h1>
     <div id="image-gallery"></div>
     <script>
         async function loadImages() {
@@ -35,5 +35,6 @@
         }
         loadImages();
     </script>
+  
 </body>
 </html>
