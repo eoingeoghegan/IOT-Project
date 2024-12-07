@@ -1,9 +1,9 @@
 from picamera2 import Picamera2
 
-def capture_image(IMAGE_PATH):
+def capture_image(image_path):
     picam2 = Picamera2()
     picam2.start()
-    picam2.capture_file(IMAGE_PATH)
+    picam2.capture_file(image_path)
     picam2.stop()
     picam2.close()
 
