@@ -98,7 +98,7 @@ try:
         z= round(accel['z'],2)
 
         print(f"Sending Temperature: {adjusted_temp}C, Humidity : {humidity}% and Accel Values: {x}, {y}, {z}")
-        #send_to_thingspeak(adjusted_temp, humidity, x, y, z)
+        send_to_thingspeak(adjusted_temp, humidity, x, y, z)
         
         fall=False
         if x > fall_detection or y > fall_detection or z > fall_detection:
@@ -108,7 +108,9 @@ try:
             print("Taking picture now and uploading to glitch")
             capture_image(image_path)
             upload_image(image_path)
+            result = upload_image(image_path)
+            blynk.set_property(3,"urls",result)
 
-        time.sleep(2)
+        time.sleep(15)
 except KeyboardInterrupt:  
         print("exiting")
