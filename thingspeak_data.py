@@ -21,9 +21,10 @@ blynk = BlynkLib.Blynk(BLYNK_AUTH_TOKEN)
 GLITCH_API_URL = "https://iot-eoingeoghegan.glitch.me/upload"  
 image_path = "/home/egghead1004/images/smart_device.jpg"
 
-#function for uploading an image to glitch thats saved in the image_path. Mine is /home/egghead1004/images/smart_device.jpg
-#It checks if the image path exists, opens the file and does a post request to glitch with the file where it is stored.
-
+'''
+function for uploading an image to glitch thats saved in the image_path. Mine is /home/egghead1004/images/smart_device.jpg
+It checks if the image path exists, opens the file and does a post request to glitch with the file where it is stored.
+'''
 def upload_image(image_path):
     if os.path.exists(image_path):
         with open(image_path, 'rb') as img_file:
@@ -40,8 +41,10 @@ def upload_image(image_path):
 THINGSPEAK_WRITE_API_KEY = "YVJGVZM4E13M0CLF"
 THINGSPEAK_CHANNEL_URL = "https://api.thingspeak.com/update"
 
-#This function sends temp, humidity and values for xyz to thingspeak to diffenrent fields. 
-#The fields store the info in the form of graphs
+'''
+This function sends temp, humidity and values for xyz to thingspeak to diffenrent fields. 
+The fields store the info in the form of graphs
+'''
 def send_to_thingspeak(adjusted_temp, humidity, x, y, z ):
     payload = {
         'api_key': THINGSPEAK_WRITE_API_KEY,
@@ -62,8 +65,10 @@ def send_to_thingspeak(adjusted_temp, humidity, x, y, z ):
    
 
 
-#Handler for the virtual pins controlling the datastreams
-#This handles the button with a datastream using 1 and 0. If the position of the button is at 0 then it turns off the device nd 1 turns it on.
+'''
+Handler for the virtual pins controlling the datastreams
+This handles the button with a datastream using 1 and 0. If the position of the button is at 0 then it turns off the device nd 1 turns it on.
+'''
 @blynk.on("V0")
 def handle_V0_write(value):
     button_value= value[0]
@@ -75,13 +80,7 @@ def handle_V0_write(value):
         print("Switch is off")
         sense.clear()
     print("testing value 1 for on, 0 for off{value}")
-# blynk.run() only works for me when at the beginning of the loop, it connects to the blynk webiste and allows the handle for the button to be used.
-#It needed a try / except to allow the code to execute properly. Otherwise the code ran but the handler wouldnt work.
-# loop to send the data continuously to the thingspeak every 15 seconds.
-#Its checking the temp, humidity and accel sensors on rasp pi and sending them to thingspeak every 15 seconds
-#Its also checking to see if the accel moves faster than 2, if so it knows fall is true which then waits 5 seconds, takes a photo and uploads it to glitch.
-#If the button is pressed that means there is a possible emergency, the sense
-#The loop restarts then.
+
 '''
 The while True loop checks the temp sensor in the rasp pi and rounds it to two  decimal places,
 I added adjusted_temp for accurate room reading with substracts 15 from temp.
