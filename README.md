@@ -40,4 +40,4 @@ Protocols:
 
 ## Screenshots
 
-![App Screenshot](images/diagram.png)
+![App Screenshot](smart_device_assignment_eoin_geoghegan/smart_images/diagram.png)
