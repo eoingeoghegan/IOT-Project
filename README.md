@@ -40,6 +40,6 @@ Protocols:
 
 ## Screenshots
 
-![App Screenshot](smart_device_assignment_eoin_geoghegan/smart_images/diagram.png)
+![App Screenshot](smart_images/diagram.png)
 
 
