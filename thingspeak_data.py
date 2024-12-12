@@ -5,12 +5,12 @@ from take_photo import capture_image
 #for uploading image to glitch
 import os
 import json
-#for using Blynk
+#library for using Blynk
 import BlynkLib
 
 sense = SenseHat()
 
-#Blynk authentication token and Created an instance of Blynk
+#Blynk authentication token taken from the Blynk website when device is created + Created an instance of Blynk
 BLYNK_AUTH_TOKEN = "6JwZ0zMXTepx2ElsQJrPAjot77d8iu7a"
 blynk = BlynkLib.Blynk(BLYNK_AUTH_TOKEN)
 
@@ -21,7 +21,7 @@ GLITCH_API_URL = "https://iot-eoingeoghegan.glitch.me/upload"
 image_path = "/home/egghead1004/images/smart_device.jpg"
 
 #function for uploading an image to glitch thats saved in the image_path. Mine is /home/egghead1004/images/smart_device.jpg
-#It check if the image path exists, opens the file and does a post request to glitch with the file where it is stored.
+#It checks if the image path exists, opens the file and does a post request to glitch with the file where it is stored.
 
 def upload_image(image_path):
     if os.path.exists(image_path):
@@ -55,7 +55,7 @@ def send_to_thingspeak(adjusted_temp, humidity, x, y, z ):
     response = requests.get(THINGSPEAK_CHANNEL_URL, params=payload)
 
     if response.status_code == 200:
-        print("Data sent to ThingSpeak.")
+        print("Sensor data sent to ThingSpeak.")
     else:
         print(f"Failed to send data. Status code: {response.status_code}")
    
@@ -64,7 +64,7 @@ def send_to_thingspeak(adjusted_temp, humidity, x, y, z ):
 #Handler for the virtual pins controlling the datastreams
 #This handles the button with a datastream using 1 and 0. If the position of the button is at 0 then it turns off the device nd 1 turns it on.
 @blynk.on("V0")
-def hadnle_V0_write(value):
+def handle_V0_write(value):
     button_value= value[0]
     print(f"Current button value: {button_value}")
     if button_value == '1':
@@ -88,8 +88,6 @@ try:
         blynk.run()
         blynk.virtual_write(1, adjusted_temp)
         blynk.virtual_write(2, sense.humidity)
-        
-        
         
         humidity = round(sense.get_humidity(),2)
         accel = sense.get_accelerometer_raw()
