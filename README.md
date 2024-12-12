@@ -46,6 +46,7 @@ Protocols:
 ## Screenshots
 
 - Here is a diagram of how it all works
+https://lucid.app/lucidchart/9a8efbbd-9ee6-4d93-b74c-9a9afbe419ff/edit?viewport_loc=-2277%2C-1100%2C2845%2C1275%2C0_0&invitationId=inv_7f010788-2ce9-4dd0-8149-20f291dddce8 
 
 ![App Screenshot](smart_images/diagram.png)
 
