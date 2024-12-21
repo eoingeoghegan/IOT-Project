@@ -65,21 +65,7 @@ def send_to_thingspeak(adjusted_temp, humidity, x, y, z ):
    
 
 
-'''
-Handler for the virtual pins controlling the datastreams
-This handles the button with a datastream using 1 and 0. If the position of the button is at 0 then it turns off the device nd 1 turns it on.
-'''
-@blynk.on("V0")
-def handle_V0_write(value):
-    button_value= value[0]
-    print(f"Current button value: {button_value}")
-    if button_value == '1':
-       print ("Switch is on")
-       sense.clear(255,255,255)
-    else:
-        print("Switch is off")
-        sense.clear()
-    print("testing value 1 for on, 0 for off{value}")
+
 
 '''
 The while True loop checks the temp sensor in the rasp pi and rounds it to two  decimal places,
